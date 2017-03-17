@@ -1,0 +1,38 @@
+{
+  "name": "ionize-slack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Webserver.js",
+  "config": {
+    "bower_directory": "src/vendor",
+    "bower_storage__cache": "~/.bower"
+  },
+  "dependencies": {
+    "@slack/client": "latest",
+    "bower": "^1.8.0",
+    "clean-css": "^3.4.21",
+    "express": "^4.14.0",
+    "handlebars": "^4.0.6",
+    "http": "0.0.0",
+    "mz": "^2.5.0",
+    "spdy": "^3.4.4",
+    "uglify-js": "^2.7.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "echo \"Starting webserver.js...\" && nodejs webserver.js",
+    "deploy": "",
+    "install": "echo \"Executing Bower&NPM Install...\" && bower install && npm install",
+    "update": "echo \"Executing Bower&NPM Update...\" && bower update && npm update"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamos42/ionize-slack.git"
+  },
+  "author": "Adam Liszkai <contact@liszkaiadam.hu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamos42/ionize-slack/issues"
+  },
+  "homepage": "https://github.com/adamos42/ionize-slack#master"
+}

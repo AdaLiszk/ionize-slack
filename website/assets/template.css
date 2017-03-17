@@ -1,0 +1,83 @@
+body, html {
+    min-height: 100%;
+}
+
+body, td, th {
+    font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background: #f2f2f2 url('background-02.png') no-repeat center center;
+    background-size: cover;
+}
+
+body:before {
+    content: ""; position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+    background: url('overlay-white@2x.png') repeat center center;
+    pointer-events: none;
+}
+
+#invite-dialog {
+    position: fixed; top: 50%; left: 50%; width: 500px; height: 300px;
+    transform: translateX(-50%) translateY(-50%);
+
+    background: #f2f2f2 url('box-gradient.png') repeat-x top left; color: #333;
+
+    box-shadow: 0 0 5px rgba(0,0,0,0.22), 0 5px 5px rgba(0,0,0,0.5);
+    border-radius: 0 0 3px 3px;
+}
+
+@media screen and (max-width: 500px) {
+    #invite-dialog {
+        width: 90%; height: auto;
+    }
+}
+
+#ionize-logo {
+    margin: 20px auto;
+}
+
+#slack-logo {
+    height: 55px; float: right; margin: 20px;
+}
+
+#invite {
+    padding: 10px;
+}
+
+#invite p {
+    text-align: center; letter-spacing: 1px;
+}
+
+#invite div {
+    display: flex; width: 90%; height: 60px; margin: 20px auto; padding: 0;
+    border-radius: 6px; overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+    align-content: stretch;
+
+    border: 1px solid #ccc; background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.07), 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#invite div input, #invite div button {
+    height: 60px; border: none; background: none; display: inline-block;
+    letter-spacing: 1px;
+}
+
+#invite div input {
+    padding: 0 30px; width: 100%;
+}
+
+#invite div button {
+    width: 150px; text-transform: uppercase; background-color: #fff; color: #3778bb;
+    font-weight: 900; text-shadow: 0 0 10px #fff;
+}
+
+/*
+#invite-dialog #invite div ~ input:focus {
+    background-color: #3778bb; color: #eee;
+    text-shadow: 0 0 10px #040e19;
+}
+*/
