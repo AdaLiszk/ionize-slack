@@ -1,19 +1,16 @@
 body, html {
     min-height: 100%;
 }
-
 body, td, th {
     font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
-
 body {
     background: #f2f2f2 url('background-02.png') no-repeat center center;
     background-size: cover;
 }
-
 body:before {
     content: ""; position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-    background: url('overlay-white@2x.png') repeat center center;
+    background: url('overlay_white@2x.png') repeat center center;
     pointer-events: none;
 }
 
@@ -26,8 +23,7 @@ body:before {
     box-shadow: 0 0 5px rgba(0,0,0,0.22), 0 5px 5px rgba(0,0,0,0.5);
     border-radius: 0 0 3px 3px;
 }
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
     #invite-dialog {
         width: 90%; height: auto;
     }
@@ -40,6 +36,11 @@ body:before {
 #slack-logo {
     height: 55px; float: right; margin: 20px;
 }
+@media screen and (max-width: 320px) {
+    #slack-logo {
+        display: none;
+    }
+}
 
 #invite {
     padding: 10px;
@@ -47,6 +48,7 @@ body:before {
 
 #invite p {
     text-align: center; letter-spacing: 1px;
+    padding: 0 10px;
 }
 
 #invite div {
@@ -60,24 +62,59 @@ body:before {
     border: 1px solid #ccc; background: #fff;
     box-shadow: 0 0 5px rgba(0,0,0,0.07), 0 2px 5px rgba(0,0,0,0.1);
 }
-
+@media screen and (max-width: 540px) {
+    #invite div {
+        flex-direction: column; height: auto;
+    }
+}
 #invite div input, #invite div button {
     height: 60px; border: none; background: none; display: inline-block;
     letter-spacing: 1px;
 }
-
 #invite div input {
     padding: 0 30px; width: 100%;
 }
-
+@media screen and (min-width: 540px) {
+    #invite div input[type="text"] {
+        width: 80px;
+    }
+}
+@media screen and (max-width: 540px) {
+    #invite div input {
+        border-bottom: 1px solid #ccc;
+        width: 90%;
+    }
+}
 #invite div button {
-    width: 150px; text-transform: uppercase; background-color: #fff; color: #3778bb;
+    width: 170px; text-transform: uppercase; background-color: #fff; color: #3778bb;
     font-weight: 900; text-shadow: 0 0 10px #fff;
 }
-
-/*
-#invite-dialog #invite div ~ input:focus {
-    background-color: #3778bb; color: #eee;
-    text-shadow: 0 0 10px #040e19;
+@media screen and (max-width: 540px) {
+    #invite div button {
+        width: 100%; text-align: right;
+        padding-right: 20px;
+    }
 }
-*/
+
+#invite #form_processing, #invite.amp-form-submitting #form,
+#invite.amp-form-submit-success #form, #invite.amp-form-submit-error #form {
+    display: none;
+}
+#invite.amp-form-submitting #form_processing {
+    display: block;
+}
+
+#invite div[submit-success], #invite div[submit-error] {
+    display: none; height: auto !important;
+}
+#invite div[submit-success] {
+    color: #151;
+}
+#invite div[submit-error] {
+    color: #A00;
+}
+
+#invite.amp-form-submit-success div[submit-success],
+#invite.amp-form-submit-error div[submit-error] {
+    display: block;
+}

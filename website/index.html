@@ -1,8 +1,27 @@
+<!--
+ ~ The MIT License (MIT)
+ ~
+ ~ Copyright (C) 2017 Ádám Liszkai <adaliszk@gmail.com>
+ ~
+ ~ Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ ~ documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ ~ the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ ~ and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ ~
+ ~ The above copyright notice and this permission notice shall be included in all copies
+ ~ or substantial portions of the Software.
+*
+ ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ ~ TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ ~ THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ ~ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ ~ DEALINGS IN THE SOFTWARE.
+ -->
 <!doctype html>
 <html amp lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title> IonizeCMS Slack Channel </title>
+	<title> IonizeCMS Slack Channel Invite </title>
 
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
@@ -36,14 +55,26 @@
 
 	<main id="invite-dialog">
 		<amp-img id="ionize-logo" src="assets/logo_blue.png" alt="Ionize CMS" height="55" width="182"></amp-img>
-		<amp-img id="slack-logo" src="assets/slack.png" alt="Slack" height="55" width="55"></amp-img>
+		<amp-img id="slack-logo" src="assets/logo_slack@64.png" alt="Slack" height="64" width="64"></amp-img>
 
 		<form id="invite" method="post" action-xhr="api/send_invite" target="_blank">
-			<p>Type in your email address so we can invite you<br/>into the IonizeCMS's Slack Channel!</p>
-			<div>
-				<input type="email" required placeholder="Whats your email address?" />
-				<button>➡ Send</button>
+			<p>Type in your name and email address so we can invite you into the IonizeCMS's Slack Channel!</p>
+			<div id="form">
+				<input type="text" required placeholder="Name" />
+				<input type="email" required placeholder="Email Address" />
+				<button>
+                    <amp-img id="ic_send" src="assets/ic_send.png" alt="Send" height="32" width="32"></amp-img>
+                </button>
 			</div>
+            <div id="form_processing">
+                Stay calm, Capybara need some time to process your Request!
+            </div>
+            <div id="form_success_message" submit-success>
+                <p>Check your inbox for your Invitation!</p>
+            </div>
+            <div id="form_error_message" submit-error>
+                <p>Something went wrong, plase contact me on <a href="mailto:adaliszk@gmail.com">adaliszk@gmail.com</a></p>
+            </div>
 		</form>
 	</main>
 
