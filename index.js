@@ -46,7 +46,7 @@ const os = require("os");
 const HOSTNAME = process.env.HOSTNAME || os.hostname();
 console.log('HOSTNAME:',HOSTNAME);
 
-const HOSTPORT = process.env.HOSTPORT || ':'+PORT;
+const HOSTPORT = ':'+PORT;
 console.log('HOSTPORT:',HOSTPORT);
 
 app.use(bodyParser.urlencoded({extended: true}));
