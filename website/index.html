@@ -26,7 +26,7 @@
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
 	<script async src="https://cdn.ampproject.org/v0.js"></script>
-	<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
 	<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 
 	<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
@@ -64,20 +64,26 @@
 		<form id="invite" method="post" action-xhr="api/send_invite" target="_blank">
 			<p>Type in your name and email address so we can invite you into the IonizeCMS's Slack Channel!</p>
 			<div id="form">
-				<input type="text" required placeholder="Name" />
-				<input type="email" required placeholder="Email Address" />
+				<input type="text" name="name" required placeholder="Name" />
+				<input type="email" name="email" required placeholder="Email Address" />
 				<button>
                     <amp-img id="ic_send" src="assets/ic_send.png" alt="Send" height="32" width="32"></amp-img>
                 </button>
 			</div>
             <div id="form_processing">
-                Stay calm, Capybara need some time to process your Request!
+                <p><b>Stay calm!</b></p>
+				<p>Capybara need some time to process your Request!</p>
             </div>
             <div id="form_success_message" submit-success>
-                <p>Check your inbox for your Invitation!</p>
+				<template type="amp-mustache">
+                	<p>Check your inbox for your Invitation!</p>
+				</template>
             </div>
             <div id="form_error_message" submit-error>
-                <p>Something went wrong, plase contact me on <a href="mailto:adaliszk@gmail.com">adaliszk@gmail.com</a></p>
+				<template type="amp-mustache">
+			      <p>Oops! <b>{{error}}</b></p>
+				  <p>{{message}}</p>
+			    </template>
             </div>
 		</form>
 	</main>

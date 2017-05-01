@@ -24,7 +24,7 @@ body:before {
 }
 
 #invite-dialog {
-    position: fixed; top: 50%; left: 50%; width: 500px; height: 300px;
+    position: fixed; top: 50%; left: 50%; width: 500px; min-height: 300px; height: auto;
     transform: translateX(-50%) translateY(-50%);
 
     background: #f2f2f2 url('box-gradient.png') repeat-x top left; color: #333;
@@ -60,7 +60,7 @@ body:before {
     padding: 0 10px;
 }
 
-#invite div {
+#invite > div {
     display: flex; width: 90%; height: 60px; margin: 20px auto; padding: 0;
     border-radius: 6px; overflow: hidden;
 
@@ -107,20 +107,37 @@ body:before {
 
 #invite #form_processing, #invite.amp-form-submitting #form,
 #invite.amp-form-submit-success #form, #invite.amp-form-submit-error #form {
-    display: none;
+    display: none; text-shadow: 0 0 5px #000;
 }
 #invite.amp-form-submitting #form_processing {
-    display: block;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: #3879bb url('progress.svg') repeat top left;
+    background-size: cover;
+    color: #fff; line-height: 100%;
+
+    -webkit-animation: progress 2s 1 forwards;
+    -moz-animation: progress 2s 1 forwards;
+    -ms-animation: progress 2s 1 forwards;
+    animation: progress 2s 1 forwards;
+}
+#invite.amp-form-submitting #form_processing p {
+    margin: 3px 0; padding: 0;
 }
 
 #invite div[submit-success], #invite div[submit-error] {
-    display: none; height: auto !important;
+    display: none; height: auto;
+}
+#invite div[submit-success] a, #invite div[submit-error] a {
+    color: #fff;
 }
 #invite div[submit-success] {
-    color: #151;
+    background-color: #151; color: #fff;
 }
 #invite div[submit-error] {
-    color: #A00;
+    background-color: #A00; color: yellow;
 }
 
 #invite.amp-form-submit-success div[submit-success],
