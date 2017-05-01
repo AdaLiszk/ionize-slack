@@ -26,6 +26,7 @@
 	<link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
 
 	<script async src="https://cdn.ampproject.org/v0.js"></script>
+	<script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
 	<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></script>
 	<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
 
@@ -50,6 +51,27 @@
 	<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 	<style amp-custom>{{template_styles}}</style>
 
+	<amp-analytics type="googleanalytics">
+	<script type="application/json">
+	{
+	  "vars": {
+	    "account": "UA-98355334-1"
+	  },
+	  "triggers": {
+	    "trackClickOnInviteMe" : {
+	      "on": "click",
+	      "selector": "#invite_me",
+	      "request": "event",
+	      "vars": {
+	        "eventCategory": "Form",
+	        "eventAction": "Submit"
+	      }
+	    }
+	  }
+	}
+	</script>
+	</amp-analytics>
+
 </head>
 <body>
 
@@ -66,7 +88,7 @@
 			<div id="form">
 				<input type="text" name="name" required placeholder="Name" />
 				<input type="email" name="email" required placeholder="Email Address" />
-				<button>
+				<button id="invite_me">
                     <amp-img id="ic_send" src="assets/ic_send.png" alt="Send" height="32" width="32"></amp-img>
                 </button>
 			</div>
