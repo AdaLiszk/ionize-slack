@@ -26,6 +26,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const compression = require('compression');
 const querystring = require('querystring');
 const bodyParser = require('body-parser');
 const multer = require('multer');
@@ -37,6 +38,7 @@ const https = require('https');
 const fs = require('mz/fs');
 
 const app = express();
+app.use(compression());
 
 const PORT = process.env.PORT || 8080;
 
