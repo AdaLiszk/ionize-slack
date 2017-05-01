@@ -15,8 +15,8 @@
   "scripts": {
     "start": "echo \"Starting webserver.js...\" && nodejs webserver.js",
     "deploy": "",
-    "install": "echo \"Executing Bower&NPM Install...\" && bower install && npm install",
-    "update": "echo \"Executing Bower&NPM Update...\" && bower update && npm update"
+    "install": "echo \"Executing NPM Install...\" && npm install",
+    "update": "echo \"Executing NPM Update...\" && npm update"
   },
   "repository": {
     "type": "git",
