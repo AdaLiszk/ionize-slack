@@ -14,9 +14,6 @@
   "devDependencies": {},
   "scripts": {
     "start": "echo \"Starting webserver.js...\" && nodejs webserver.js",
-    "deploy": "",
-    "install": "echo \"Executing NPM Install...\" && npm install",
-    "update": "echo \"Executing NPM Update...\" && npm update"
   },
   "repository": {
     "type": "git",
