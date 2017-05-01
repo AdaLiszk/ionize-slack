@@ -39,12 +39,9 @@ const fs = require('mz/fs');
 const app = express();
 
 const PORT = process.env.PORT || 8080;
-console.log('PORT:',PORT);
 
 const os = require("os");
-
 const HOSTNAME = process.env.HOSTNAME || os.hostname();
-console.log('HOSTNAME:',HOSTNAME);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -53,16 +50,13 @@ app.use(bodyParser.json());
 app.get(/([^/]*)(\/|\/index.html)$/i, (request, response) => {
 
 	let baseURL = request.baseUrl; if(baseURL=='') baseURL = '/';
-	console.log(request.method+' Request: '+baseURL);
 
 	var parameters = {
 		'error': '{{error}}',
 		'message': '{{message}}'
 	};
 
-	let includeFiles = [
-		fs.readFile(__dirname + '/website/assets/template.css')
-	];
+	let includeFiles = [fs.readFile(__dirname + '/website/assets/template.css')];
 	let includeFileNames = ['template_styles'];
 
 	Promise.all(includeFiles)
@@ -83,7 +77,7 @@ app.get(/([^/]*)(\/|\/index.html)$/i, (request, response) => {
 		//console.log('Paramters Updated:', parameters);
 		return includes;
 	})
-	.then(includes => fs.readFile(__dirname + '/website/index.html'))
+	.then(() => fs.readFile(__dirname + '/website/index.html'))
 	.then(template => {
 		//console.log('Template:', template);
 
@@ -98,7 +92,7 @@ app.get(/([^/]*)(\/|\/index.html)$/i, (request, response) => {
 	})
 	.then(compiled => response.send(compiled))
 	.catch(error => {
-		console.error(error);
+		//console.error(error); @TODO: Send Error Report
 		response.status(500).send(error.toString())
 	});
 });
@@ -111,8 +105,8 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 
 	// https://ionizecms.slack.com/api/users.admin.invite?_x_id=<RequestToken>&email=<Email>&channels=<ChannelID>
 
-	console.log('POST /api/send_invite');
-	console.log('BODY:', request.body);
+	//console.log('POST /api/send_invite');
+	//console.log('BODY:', request.body);
 
 	const POST_EMAIL = request.body.email || '';
 	const POST_NAME = request.body.name || '';
@@ -126,13 +120,13 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 		'first_name': POST_NAME,
 		'token': process.env.API_TOKEN || ''
 	};
-	console.log('QUERY_DATA:', QUERY_DATA);
+	//console.log('QUERY_DATA:', QUERY_DATA);
 
 	const QUERY_STRING = querystring.stringify(QUERY_DATA);
-	console.log('QUERY_STRING:', QUERY_STRING);
+	//console.log('QUERY_STRING:', QUERY_STRING);
 
 	const REQUEST_OPTIONS = {method:'GET',host:API_HOST,path:API_PATH+'&'+QUERY_STRING};
-	console.log('REQUEST_OPTIONS:', REQUEST_OPTIONS);
+	//console.log('REQUEST_OPTIONS:', REQUEST_OPTIONS);
 
 	const SlackRequest = https.request(REQUEST_OPTIONS, (res) => {
 		var responseText = '';
@@ -141,19 +135,19 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 		res.on('data', (chunk) => { responseText += chunk; });
 
 		res.on('end', () => {
-			console.log('SlackRequest::end',responseText);
+			//console.log('SlackRequest::end',responseText);
 
 			response.set('Content-Type', 'application/json');
-			console.log('Content-Type:', response.get('Content-Type'));
+			//console.log('Content-Type:', response.get('Content-Type'));
 
-    		response.set('Access-Control-Allow-Origin', 'https://'+HOSTNAME);
-			console.log('Access-Control-Allow-Origin:', response.get('Access-Control-Allow-Origin'));
+			response.set('Access-Control-Allow-Origin', 'https://'+HOSTNAME);
+			//console.log('Access-Control-Allow-Origin:', response.get('Access-Control-Allow-Origin'));
 
 			response.set('Access-Control-Expose-Headers','AMP-Access-Control-Allow-Source-Origin');
-			console.log('Access-Control-Expose-Headers:', response.get('Access-Control-Expose-Headers'));
+			//console.log('Access-Control-Expose-Headers:', response.get('Access-Control-Expose-Headers'));
 
 			response.set('AMP-Access-Control-Allow-Source-Origin', 'https://'+HOSTNAME);
-			console.log('AMP-Access-Control-Allow-Source-Origin:', response.get('AMP-Access-Control-Allow-Source-Origin'));
+			//console.log('AMP-Access-Control-Allow-Source-Origin:', response.get('AMP-Access-Control-Allow-Source-Origin'));
 
 			try
 			{
@@ -192,14 +186,15 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 				response.status(500).send(JSON.stringify(responseJson));
 			}
 		});
-	}).end();
+	});
+
+	SlackRequest.end();
 });
 
 app.listen(PORT, error => {
-	if (!error) console.log('Listening on:',PORT);
-	else
+	if (error)
 	{
-		console.error(error);
+		//console.error(error); @TODO: Send Error Report
 		return process.exit(1)
 	}
 });
