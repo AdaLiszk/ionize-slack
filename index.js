@@ -146,13 +146,13 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 			response.set('Content-Type', 'application/json');
 			console.log('Content-Type:', response.get('Content-Type'));
 
-    		response.set('Access-Control-Allow-Origin', request.protocol+'://'+HOSTNAME);
+    		response.set('Access-Control-Allow-Origin', 'https://'+HOSTNAME);
 			console.log('Access-Control-Allow-Origin:', response.get('Access-Control-Allow-Origin'));
 
 			response.set('Access-Control-Expose-Headers','AMP-Access-Control-Allow-Source-Origin');
 			console.log('Access-Control-Expose-Headers:', response.get('Access-Control-Expose-Headers'));
 
-			response.set('AMP-Access-Control-Allow-Source-Origin', request.protocol+'://'+HOSTNAME);
+			response.set('AMP-Access-Control-Allow-Source-Origin', 'https://'+HOSTNAME);
 			console.log('AMP-Access-Control-Allow-Source-Origin:', response.get('AMP-Access-Control-Allow-Source-Origin'));
 
 			try
