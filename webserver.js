@@ -32,6 +32,7 @@ const http = require('http');
 const fs = require('mz/fs');
 
 const app = express();
+const port = process.env.PORT || 8080;
 
 // Handle the root file
 app.get(/([^/]*)(\/|\/index.html)$/i, (request, response) => {
@@ -93,16 +94,7 @@ app.post('/api/send_invite', (request, response) => {
 	response.status(501).send(null);
 });
 
-// Configuring Webserver
-const port = 443;
-const options = {
-	key: fs.readFileSync(__dirname + '/credentials/development.key'),
-	cert:  fs.readFileSync(__dirname + '/credentials/development.crt')
-};
-
-// Starting Webserver
-spdy.createServer(options, app).listen(port, error =>
-{
+app.listen(port, error => {
 	if (!error) console.log('Listening https on :' + port);
 	else
 	{
