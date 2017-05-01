@@ -46,9 +46,6 @@ const os = require("os");
 const HOSTNAME = process.env.HOSTNAME || os.hostname();
 console.log('HOSTNAME:',HOSTNAME);
 
-const HOSTPORT = ':'+PORT;
-console.log('HOSTPORT:',HOSTPORT);
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
@@ -149,13 +146,13 @@ app.post('/api/send_invite', formData.fields([]), (request, response) => {
 			response.set('Content-Type', 'application/json');
 			console.log('Content-Type:', response.get('Content-Type'));
 
-    		response.set('Access-Control-Allow-Origin', request.protocol+'://'+HOSTNAME+HOSTPORT);
+    		response.set('Access-Control-Allow-Origin', request.protocol+'://'+HOSTNAME);
 			console.log('Access-Control-Allow-Origin:', response.get('Access-Control-Allow-Origin'));
 
 			response.set('Access-Control-Expose-Headers','AMP-Access-Control-Allow-Source-Origin');
 			console.log('Access-Control-Expose-Headers:', response.get('Access-Control-Expose-Headers'));
 
-			response.set('AMP-Access-Control-Allow-Source-Origin', request.protocol+'://'+HOSTNAME+HOSTPORT);
+			response.set('AMP-Access-Control-Allow-Source-Origin', request.protocol+'://'+HOSTNAME);
 			console.log('AMP-Access-Control-Allow-Source-Origin:', response.get('AMP-Access-Control-Allow-Source-Origin'));
 
 			try
