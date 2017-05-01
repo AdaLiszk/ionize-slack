@@ -5,7 +5,7 @@ body, td, th {
     font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 body {
-    background: #f2f2f2 url('background-02.png') no-repeat center center;
+    background: .f2f2f2 url('background-02.png') no-repeat center center;
     background-size: cover;
 }
 body:before {
@@ -14,53 +14,53 @@ body:before {
     pointer-events: none;
 }
 
-#github-logo-link {
+.github-logo-link {
     position: fixed; top: 0; right: 0;
 }
 @media screen and (max-width: 800px) {
-    #github-logo-link {
+    .github-logo-link {
         display: none;
     }
 }
 
-#invite-dialog {
+.invite-dialog {
     position: fixed; top: 50%; left: 50%; width: 500px; min-height: 300px; height: auto;
     transform: translateX(-50%) translateY(-50%);
 
-    background: #f2f2f2 url('box-gradient.png') repeat-x top left; color: #333;
+    background: .f2f2f2 url('box-gradient.png') repeat-x top left; color: .333;
 
     box-shadow: 0 0 5px rgba(0,0,0,0.22), 0 5px 5px rgba(0,0,0,0.5);
     border-radius: 0 0 3px 3px;
 }
 @media screen and (max-width: 540px) {
-    #invite-dialog {
+    .invite-dialog {
         width: 90%; height: auto;
     }
 }
 
-#ionize-logo {
+.ionize-logo {
     margin: 20px auto;
 }
 
-#slack-logo {
+.slack-logo {
     height: 55px; float: right; margin: 20px;
 }
 @media screen and (max-width: 320px) {
-    #slack-logo {
+    .slack-logo {
         display: none;
     }
 }
 
-#invite {
+.invite {
     padding: 10px;
 }
 
-#invite p {
+.invite p {
     text-align: center; letter-spacing: 1px;
     padding: 0 10px;
 }
 
-#invite > div {
+.invite > div {
     display: flex; width: 90%; height: 60px; margin: 20px auto; padding: 0;
     border-radius: 6px; overflow: hidden;
 
@@ -68,79 +68,79 @@ body:before {
     justify-content: center;
     align-content: stretch;
 
-    border: 1px solid #ccc; background: #fff;
+    border: 1px solid .ccc; background: .fff;
     box-shadow: 0 0 5px rgba(0,0,0,0.07), 0 2px 5px rgba(0,0,0,0.1);
 }
 @media screen and (max-width: 540px) {
-    #invite div {
+    .invite div {
         flex-direction: column; height: auto;
     }
 }
-#invite div input, #invite div button {
+.invite div input, .invite div button {
     height: 60px; border: none; background: none; display: inline-block;
     letter-spacing: 1px;
 }
-#invite div input {
+.invite div input {
     padding: 0 30px; width: 100%;
 }
 @media screen and (min-width: 540px) {
-    #invite div input[type="text"] {
+    .invite div input[type="text"] {
         width: 80px;
     }
 }
 @media screen and (max-width: 540px) {
-    #invite div input {
-        border-bottom: 1px solid #ccc;
+    .invite div input {
+        border-bottom: 1px solid .ccc;
         width: 90%;
     }
 }
-#invite div button {
-    width: 170px; text-transform: uppercase; background-color: #fff; color: #3778bb;
-    font-weight: 900; text-shadow: 0 0 10px #fff;
+.invite div button {
+    width: 170px; text-transform: uppercase; background-color: .fff; color: .3778bb;
+    font-weight: 900; text-shadow: 0 0 10px .fff;
 }
 @media screen and (max-width: 540px) {
-    #invite div button {
+    .invite div button {
         width: 100%; text-align: right;
         padding-right: 20px;
     }
 }
 
-#invite #form_processing, #invite.amp-form-submitting #form,
-#invite.amp-form-submit-success #form, #invite.amp-form-submit-error #form {
-    display: none; text-shadow: 0 0 5px #000;
+.invite .form_processing, .invite.amp-form-submitting .form,
+.invite.amp-form-submit-success .form, .invite.amp-form-submit-error .form {
+    display: none; text-shadow: 0 0 5px .000;
 }
-#invite.amp-form-submitting #form_processing {
+.invite.amp-form-submitting .form_processing {
     display: flex; flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    background: #3879bb url('progress.svg') repeat top left;
+    background: .3879bb url('progress.svg') repeat top left;
     background-size: cover;
-    color: #fff; line-height: 100%;
+    color: .fff; line-height: 100%;
 
     -webkit-animation: progress 2s 1 forwards;
     -moz-animation: progress 2s 1 forwards;
     -ms-animation: progress 2s 1 forwards;
     animation: progress 2s 1 forwards;
 }
-#invite.amp-form-submitting #form_processing p {
+.invite.amp-form-submitting .form_processing p {
     margin: 3px 0; padding: 0;
 }
 
-#invite div[submit-success], #invite div[submit-error] {
+.invite div[submit-success], .invite div[submit-error] {
     display: none; height: auto;
 }
-#invite div[submit-success] a, #invite div[submit-error] a {
-    color: #fff;
+.invite div[submit-success] a, .invite div[submit-error] a {
+    color: .fff;
 }
-#invite div[submit-success] {
-    background-color: #151; color: #fff;
+.invite div[submit-success] {
+    background-color: .151; color: .fff;
 }
-#invite div[submit-error] {
-    background-color: #A00; color: yellow;
+.invite div[submit-error] {
+    background-color: .A00; color: yellow;
 }
 
-#invite.amp-form-submit-success div[submit-success],
-#invite.amp-form-submit-error div[submit-error] {
+.invite.amp-form-submit-success div[submit-success],
+.invite.amp-form-submit-error div[submit-error] {
     display: block;
 }
