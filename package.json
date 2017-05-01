@@ -13,7 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "echo \"Starting webserver.js...\" && nodejs webserver.js",
+    "start": "echo \"Starting webserver.js...\" && nodejs webserver.js"
   },
   "repository": {
     "type": "git",
