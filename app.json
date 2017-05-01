@@ -1,0 +1,19 @@
+{
+  "name": "Ionize CMS Slack Inviter",
+  "description": "Invitation maker for Ionize CMS Slack server !",
+  "keywords": [
+    "IonizeCMS",
+    "Slack"
+  ],
+  "repository": "https://github.com/adaliszk/ionize-slack",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "node webserver.js"
+  },
+  "image": "heroku/node",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nodejs"
+    }
+  ]
+}
