@@ -5,7 +5,7 @@ body, td, th {
     font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
 }
 body {
-    background: .f2f2f2 url('background-02.png') no-repeat center center;
+    background: #f2f2f2 url('background-02.png') no-repeat center center;
     background-size: cover;
 }
 body:before {
@@ -27,7 +27,7 @@ body:before {
     position: fixed; top: 50%; left: 50%; width: 500px; min-height: 300px; height: auto;
     transform: translateX(-50%) translateY(-50%);
 
-    background: .f2f2f2 url('box-gradient.png') repeat-x top left; color: .333;
+    background: #f2f2f2 url('box-gradient.png') repeat-x top left; color: #333;
 
     box-shadow: 0 0 5px rgba(0,0,0,0.22), 0 5px 5px rgba(0,0,0,0.5);
     border-radius: 0 0 3px 3px;
@@ -68,7 +68,7 @@ body:before {
     justify-content: center;
     align-content: stretch;
 
-    border: 1px solid .ccc; background: .fff;
+    border: 1px solid .ccc; background: #fff;
     box-shadow: 0 0 5px rgba(0,0,0,0.07), 0 2px 5px rgba(0,0,0,0.1);
 }
 @media screen and (max-width: 540px) {
@@ -95,7 +95,7 @@ body:before {
     }
 }
 .invite div button {
-    width: 170px; text-transform: uppercase; background-color: .fff; color: .3778bb;
+    width: 170px; text-transform: uppercase; background-color: #fff; color: #3778bb;
     font-weight: 900; text-shadow: 0 0 10px .fff;
 }
 @media screen and (max-width: 540px) {
@@ -114,9 +114,9 @@ body:before {
     justify-content: center;
     align-items: center;
 
-    background: .3879bb url('progress.svg') repeat top left;
+    background: #3879bb url('progress.svg') repeat top left;
     background-size: cover;
-    color: .fff; line-height: 100%;
+    color: #fff; line-height: 100%;
 
     -webkit-animation: progress 2s 1 forwards;
     -moz-animation: progress 2s 1 forwards;
@@ -131,13 +131,13 @@ body:before {
     display: none; height: auto;
 }
 .invite div[submit-success] a, .invite div[submit-error] a {
-    color: .fff;
+    color: #fff;
 }
 .invite div[submit-success] {
-    background-color: .151; color: .fff;
+    background-color: #151; color: #fff;
 }
 .invite div[submit-error] {
-    background-color: .A00; color: yellow;
+    background-color: #A00; color: yellow;
 }
 
 .invite.amp-form-submit-success div[submit-success],
