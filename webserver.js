@@ -94,7 +94,7 @@ app.post('/api/send_invite', (request, response) => {
 });
 
 // Configuring Webserver
-const port = 9100;
+const port = 8080;
 const options = {
 	key: fs.readFileSync(__dirname + '/credentials/development.key'),
 	cert:  fs.readFileSync(__dirname + '/credentials/development.crt')

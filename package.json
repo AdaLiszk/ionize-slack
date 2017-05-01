@@ -1,22 +1,15 @@
 {
-  "name": "ionize-slack",
+  "name": "adaliszk/ionize-slack",
   "version": "1.0.0",
-  "description": "",
-  "main": "Webserver.js",
-  "config": {
-    "bower_directory": "src/vendor",
-    "bower_storage__cache": "~/.bower"
-  },
+  "description": "Invitation maker for Ionize CMS Slack server !",
+  "main": "webserver.js",
   "dependencies": {
-    "@slack/client": "latest",
-    "bower": "^1.8.0",
     "clean-css": "^3.4.21",
     "express": "^4.14.0",
     "handlebars": "^4.0.6",
     "http": "0.0.0",
     "mz": "^2.5.0",
-    "spdy": "^3.4.4",
-    "uglify-js": "^2.7.4"
+    "spdy": "^3.4.4"
   },
   "devDependencies": {},
   "scripts": {
@@ -29,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/adamos42/ionize-slack.git"
   },
-  "author": "Adam Liszkai <contact@liszkaiadam.hu>",
+  "author": "Ádám Liszkai <adaliszk@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/adamos42/ionize-slack/issues"
