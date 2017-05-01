@@ -1,5 +1,5 @@
 {
-  "name": "adaliszk/ionize-slack",
+  "name": "ionize-slack",
   "version": "1.0.0",
   "description": "Invitation maker for Ionize CMS Slack server !",
   "main": "webserver.js",
